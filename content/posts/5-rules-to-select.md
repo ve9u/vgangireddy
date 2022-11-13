@@ -4,6 +4,7 @@ authorimage = "../assets/images/global/author.webp"
 categories = "sql"
 date = 2022-06-18T03:10:36Z
 description = ""
+draft = true
 featured_image = "../assets/images/featured/featured-img-placeholder.png"
 language = "en"
 summary = ""
@@ -13,12 +14,7 @@ title = "5 Rules to SELECT"
 +++
 **Advertisement :smile:**
 
-* [**pica**](https://nodeca.github.io/pica/demo/) - high quality and fast image
-  resize in browser.
-* [**babelfish**](https://github.com/nodeca/babelfish/) - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
+Data Scientists wants to 
 
 ***
 
@@ -82,11 +78,7 @@ Unordered
 * Sub-lists are made by indenting 2 spaces:
   * Marker character change forces new list start:
     * Ac tristique libero volutpat at
-
-
     * Facilisis in pretium nisl aliquet
-
-
     * Nulla volutpat aliquam velit
 * Very easy!
 
