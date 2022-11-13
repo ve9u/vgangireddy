@@ -2,7 +2,7 @@
 author = "Venu Gangireddy"
 authorimage = "../assets/images/global/author.webp"
 categories = "sql"
-date = 2022-06-18T03:10:36Z
+date = 2022-11-12T18:30:00Z
 description = ""
 draft = true
 featured_image = "../assets/images/featured/featured-img-placeholder.png"
@@ -14,7 +14,11 @@ title = "5 Rules to SELECT"
 +++
 **Advertisement :smile:**
 
-Data Scientists wants to 
+Data Scientists meaningful data from large data stores to find hidden patterns. SQL can be used to fetch the only required data from the. 
+
+Mostly data
+
+, usually all 
 
 ***
 
