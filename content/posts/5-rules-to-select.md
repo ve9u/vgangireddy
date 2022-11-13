@@ -4,7 +4,6 @@ authorimage = "../assets/images/global/author.webp"
 categories = "sql"
 date = 2022-06-18T03:10:36Z
 description = ""
-draft = true
 featured_image = "../assets/images/featured/featured-img-placeholder.png"
 language = "en"
 summary = ""
