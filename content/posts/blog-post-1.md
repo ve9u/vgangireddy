@@ -1,5 +1,5 @@
 ---
-title: "Blog Post 1"
+title: "First Rule to SELECT"
 date: 2022-06-18T11:10:36+08:00
 draft: false
 language: en
@@ -8,8 +8,8 @@ summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus, od
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus, odio nec venenatis lacinia, lacus lectus varius nisi, in tristique mi purus ut libero. Vestibulum vel convallis felis. Ut finibus lorem vestibulum lobortis rhoncus.
 author: TailBliss
 authorimage: ../assets/images/global/author.webp
-categories: Blog
-tags: Blog
+categories: SQL
+tags: SQL, 5 Rules to SELECT
 ---
 __Advertisement :smile:__
 
