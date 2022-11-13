@@ -9,7 +9,7 @@ featured_image = "../assets/images/featured/featured-img-placeholder.png"
 language = "en"
 summary = ""
 tags = ["SQL", "5 Rules"]
-title = "5 Rules to SELECT"
+title = "5 rules to fetch the data"
 
 +++
 **Advertisement :smile:**
