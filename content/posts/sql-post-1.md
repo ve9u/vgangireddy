@@ -1,5 +1,5 @@
 ---
-title: First Rule to SELECT
+title: First step to SELECT
 date: 2022-06-18T11:10:36.000+08:00
 language: en
 featured_image: "../assets/images/featured/featured-img-placeholder.png"
@@ -10,7 +10,7 @@ authorimage: "../assets/images/global/author.webp"
 categories: sql
 tags:
 - SQL
-- 5 Rules
+- 5 Steps
 draft: true
 
 ---
