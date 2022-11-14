@@ -8,7 +8,7 @@ draft = true
 featured_image = "../assets/images/featured/featured-img-placeholder.png"
 language = "en"
 summary = ""
-tags = ["SQL", "5 Rules"]
+tags = ["SQL", "5 Steps"]
 title = "5 steps to fetch the data"
 
 +++
