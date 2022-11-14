@@ -1,11 +1,11 @@
 ---
 title: Contact
-date: 2021-12-18T03:10:36.000Z
-draft: false
+date: 2021-12-18T03:10:36.000+00:00
 language: en
 description: A test with @tailwindcss/typography & Prose
----
+draft: true
 
+---
 <!-- @format -->
 
 <section class="lg:pb-24">
