@@ -34,13 +34,17 @@ The rule of thumb is \[better words\]
 
 \[input/output diagram\]
 
-The next set of 
+\[example\]
+
+Below blog posts will help you understand how you can use the table and column data to fetch the required result set.
+
+POST1:
 
 SQL clause has a dedicated operation for this, which will be used to interact with the database engine.
 
 The query we are considering for this is,
 
-Consider social media ad campaign, wants to know number of active ad campaigns of each promoter name by region in each month in this year. 
+Consider social media ad campaign, wants to know the number of active ad campaigns of each promoter name by region in each month in this year. 
 
 \[ Consider ending_date of the campign as final campign date.\] (move this to table description)
 
