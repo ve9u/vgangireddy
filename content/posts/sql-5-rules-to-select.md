@@ -14,7 +14,7 @@ title = "5 steps to fetch the data"
 +++
 Data Scientists ask a lot of questions themselves to search for meaningful data from large data stores to find hidden patterns. All these questions are in the native language rather than any datastore understandable language like SQL. The convenience of fetching the data might be the least of their concerns while they are asking these questions, luckily SQL standards are capable enough to handle almost every question they can throw at it. 
 
-This series of blog posts covers the multi-step approach that can convert the query in your native language into a SQL query.
+This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. I tried to keep these steps friendly to the native reader rather than explaining each and every concept that SQL standards contain. 
 
 SQL clause has a dedicated operation for this, which will be used to interact with the database engine.
 
