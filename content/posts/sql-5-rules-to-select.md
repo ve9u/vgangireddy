@@ -26,7 +26,7 @@ COLUMN:
 
 ROW:
 
-The rule of thumb is 
+The rule of thumb is \[better words\]
 
 * Your data is stored in one or multiple tables
 * Your questions are framed based on the column data
