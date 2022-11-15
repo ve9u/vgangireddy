@@ -18,7 +18,7 @@ Data Scientists ask a lot of questions themselves to search for meaningful data 
 
 This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. I tried to keep these steps friendly to the native reader rather than explaining each and every concept that SQL standards contain. 
 
-You need to understand how data is represented in the data stores before proceeding further. 
+You need to understand how data is represented in the data stores before proceeding further. \[soften the tone\]
 
 TABLE:
 
@@ -33,6 +33,8 @@ The rule of thumb is
 * Your answers are in the form of rows, which will be provided by your database system.
 
 \[input/output diagram\]
+
+The next set of 
 
 SQL clause has a dedicated operation for this, which will be used to interact with the database engine.
 
