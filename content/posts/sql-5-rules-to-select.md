@@ -12,13 +12,13 @@ tags = ["SQL", "5 Steps"]
 title = "5 steps to fetch the data"
 
 +++
-Data Scientists meaningful data from large data stores to find hidden patterns. SQL can be used to fetch the only required data from the.
+Data Scientists ask a lot of questions themselves to search for meaningful data from large data stores to find hidden patterns. All these questions are in the native language rather than any datastore understandable language like SQL. The convenience of fetching the data might be the least of their concerns while they are asking these questions, luckily SQL standards are capable enough to handle almost every question they can throw at it. 
 
-This series of blog posts covers the multi-step approaches 
+This series of blog posts covers the multi-step approach that can convert the query in your native language into a SQL query.
 
 SQL clause has a dedicated operation for this, which will be used to interact with the database engine.
 
-The query we are considering for this,
+The query we are considering for this is,
 
 Consider social media ad campaign, wants to know number of active ad campaigns of each promoter name by region in each month in this year. 
 
