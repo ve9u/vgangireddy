@@ -16,7 +16,7 @@ Data Scientists meaningful data from large data stores to find hidden patterns. 
 
 This chapter covers multi-step approach to convert given query into SQL format.
 
-SQL clause has dedicated operation for this, will be used to interact with the database engine.
+SQL clause has a dedicated operation for this, which will be used to interact with the database engine.
 
 The query we are considering for this,
 
