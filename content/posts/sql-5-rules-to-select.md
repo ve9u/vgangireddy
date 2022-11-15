@@ -12,229 +12,254 @@ tags = ["SQL", "5 Steps"]
 title = "5 steps to fetch the data"
 
 +++
-**Advertisement :smile:**
+Data Scientists meaningful data from large data stores to find hidden patterns. SQL can be used to fetch the only required data from the.
 
-Data Scientists meaningful data from large data stores to find hidden patterns. SQL can be used to fetch the only required data from the. 
+This chapter covers multi-step approach to convert given query into SQL format.
 
-Mostly data
+SQL clause has dedicated operation for this, will be used to interact with the database engine.
 
-, usually all 
+The query we are considering for this,
 
-***
+Consider social media ad campaign, wants to know number of active ad campaigns of each promoter name by region in each month in this year. 
 
-# h1 Heading :blush:
+\[ Consider ending_date of the campign as final campign date.\] (move this to table description)
 
-## h2 Heading
+The expected result set should be in below format.
 
-### h3 Heading
+| promoter_name | region | active_campigns_count | month |
 
-#### h4 Heading
+\[include relateable tables\]
 
-##### h5 Heading
+Below 5 step process deal with most useful SQL clauses.
 
-###### h6 Heading
+These are building block for constituting more complex queries in further chapters.
 
-## Horizontal Rules
+The order of these clauses also importent which will define the syntax of the SQL query. 
 
-***
+\## Basic clauses:
 
-***
+\### SELECT: 
 
-***
+This clause defines the list of columns should be present in the result set.
 
-## Typographic replacements
+SELECT clause followed by list of expected column in the result set.
 
-Enable typographer option to see result.
+The expected column can be one of the below three types compare to the the relateable columns present in the given tables.
 
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+1\. Column: The required information can be present as  column in one of the given table.
 
-test.. test... test..... test?..... test!....
+For example, 
 
-!!!!!! ???? ,,  -- ---
+a. The expected promoter_name as part of result set, directly present in the Promoter table as promoter_name column.
 
-"Smartypants, double quotes" and 'single quotes'
+b. The region as part of result set, directly present in the Adcampign table as region column.
 
-## Emphasis
+The coloumn information can be projected directly in the result set.
 
-**This is bold text**
+2\. Transformed Column: The required information not present in any of tables, but can be derived from the one or more coloumn present in a table. 
 
-**This is bold text**
+For example, 
 
-_This is italic text_
+a. The campine month information not present as column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field. 
 
-_This is italic text_
+These kind of extraction / transformation operations can be performed by functions defined in the database engine. 
 
-~~Strikethrough~~
+The function take column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set. 
 
-## Blockquotes
+Most commonly used function on date field are,
 
-> Blockquotes can also be nested...
->
-> > ...by using additional greater-than signs right next to each other...
-> >
-> > > ...or with spaces between arrows.
+MONTH(), YEAR() \[add table here\]
 
-## Lists
+\`MONTH(end_date)\` could get us required month value.
 
-Unordered
+2\. Aggregated Information: The required information not present in any of tables, but can be derived from by aggregateing or combining values from one or multiple coloumns in given tables.
 
-* Create a list by starting a line with `+`, `-`, or `*`
-* Sub-lists are made by indenting 2 spaces:
-  * Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    * Facilisis in pretium nisl aliquet
-    * Nulla volutpat aliquam velit
-* Very easy!
+For example: There is no column can replace active_campign_count, but couting number of campign_id from AdCampign can replace active_campign_count.
 
-Ordered
+Aggregated operation combine set of column entries into one single value, unlike normal function the end result will be single value.
 
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-4. You can use sequential numbers...
-5. ...or keep all the numbers as `1.`
+1\. Count:
 
-Start numbering with offset:
+2\. Min:
 
-1. foo
-2. bar
+3\. Max:
 
-## Code
+4\. Sum:
 
-Inline `code`
+Gather all required column information and which tables these columns are belongs to.
 
-Indented code
+| Column |  Type | Table | source | function |
 
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
+| --- | ----------- |------- | -------- | ----- |
 
-Block code "fences"
+| promoter_name | Direct | Promoter | promoter_name | |
 
-    Sample text here...
+| region  | Direct | AdCampign | region | |
 
-Syntax highlighting
+| month | Transformed | AdCampign | end_date | MONTH() |
 
-``` js
-var foo = function (bar) {
-  return bar++;
-};
+| active_campign_count | Aggregated | AdCampign | campign_id | COUNT() |
 
-console.log(foo(5));
-```
+Above table can be used to compose SELECT clause, this can be done by appling appropriate function on the source column. 
 
-## Tables
+SELECT promoter_name, region, MONTH(end_date), COUNT(campign_id)
 
-| Option | Description |
-| --- | --- |
-| data | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext | extension to be used for dest files. |
+The project coloumn will be same as projected coloumn with the same header name. It will be like below.
 
-Right aligned columns
+| promoter_name | region | COUNT(campign_id) | MONTH(end_date) |
 
-| Option | Description |
-| ---: | ---: |
-| data | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext | extension to be used for dest files. |
+These names are not user friendly, we can mention the alias name by adding as next to it.
 
-## Links
+SELECT promoter_name, region, MONTH(end_date) AS month, COUNT(campign_id) AS active_campigns_count
 
-[link text](http://dev.nodeca.com)
+As a syntatical suger we can ignore AS from the statement. This book further won't use AS, and the final SELECT statement will look like,
 
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+SELECT promoter_name, region, MONTH(end_date) month, COUNT(campign_id) active_campigns_count
 
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+\### FROM : What tables data been stored
 
-## Images
+This clause represents in what tables the information is resides. 
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+Place all the tables from above list in this clause. 
 
-Like links, Images also have a footnote style syntax
+It is possible that required columns are from different tables, but there is only one results set. Database engine do this magic of combining the data from different table called JOIN operation. We need to learn how to use this JOIN operation. We learn only simple JOIN(Natural JOIN) operation now, we will learn other flavors of in next chapters. 
 
-![Alt text](https://octodex.github.com/images/dojocat.jpg "The Dojocat")
+Natural JOIN: 
 
-With a reference later in the document defining the URL location:
+This will combine the same columns of different tables based on JOIN predicate.
 
-## Plugins
+1\. Tables involved in JOIN operation.
 
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+2\. JOIN Predicate: The general rule of thumb is JOIN predicate happens between primary key and foreign key.
 
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+Predicate: True or False.
 
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
+explain equal predicate
 
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+Example:
 
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+FROM TABLE-A JOIN TABLE-B ON 
 
-* 19^th^
-* H\~2\~O
+\### Where: 
 
-### [<ins>](https://github.com/markdown-it/markdown-it-ins)
+These will be used to add additional predicates
 
-\++Inserted text++
+1\. Less than
 
-### [<mark>](https://github.com/markdown-it/markdown-it-mark)
+2\. Greater than 
 
-==Marked text==
+3\. Not equal
 
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+4\. equal
 
-Footnote 1 link\[^first\].
+\### GROUP BY: Rest of the fields which are not participating in the aggregate operations
 
-Footnote 2 link\[^second\].
+These columns will group the result set into subset before applying aggregation operations, so that aggregated operation will happen in the groups.
 
-Inline footnote^\[Text of inline footnote\] definition.
+The general rule of thumb, all non-aggregated cloumns in the 
 
-Duplicated footnote reference\[^second\].
+\### Having: Filter on aggregated fields.
 
-\[^first\]: Footnote **can have markup**
+This filed apply predicate condition over aggregated columns in the result-set.
 
-    and multiple paragraphs.
+\## Additional Basic Clauses:
 
-\[^second\]: Footnote text.
+1\. Sort the result set. 
 
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+Sometime results set need to present in a meaningful way by sorting based on different column values. 
 
-Term 1
+ORDER BY clause will be used to sort the result set. 
 
-:   Definition 1
-with lazy continuation.
+based on subset of columns mentioned in the SELECT clause. 
 
-Term 2 with _inline markup_
+Example:
 
-:   Definition 2
+2\. Only need top results:
 
-        { some code, part of Definition 2 }
-    
-    Third paragraph of definition 2.
+Only interested in top results
 
-_Compact style:_
+LIMIT 10 OFFSET
 
-Term 1
-\~ Definition 1
+\### Practice questions
 
-Term 2
-\~ Definition 2a
-\~ Definition 2b
+\`\`\`{r tables}
 
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+dbListTables(mysqlconnection)
 
-This is HTML abbreviation example.
+\`\`\`
 
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+Sales
 
-\*\[HTML\]: Hyper Text Markup Language
+Orders
 
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
+Products
 
-::: warning
-_here be dragons_
-:::
+Employees: employee_id, employee_name,
+
+Login
+
+1\. Write SQL query to get all data from the Employee table. 
+
+Follow 5 rules.
+
+a. Project all columns
+
+SELECT *
+
+Introduce *:
+
+Not recommended considering dealing with large volume of data. 
+
+Get some estimate before doing actual operation
+
+Introduce EXPLAN
+
+2\. How many total columns in Employee table. 
+
+Follow 5 rules.
+
+Introduce count(*):
+
+Introduce explain
+
+2\. Select most recent login times
+
+select the most recent login time by values from the login_info table
+
+ 
+
+\`\`\`SQL
+
+ CREATE TABLE login_info (
+
+ user_id INT,
+
+ login_time DATETIME
+
+ );
+
+\`\`\`
+
+3\. Write a SQL query to find all duplicate emails in the Employee table.
+
+4\. Write SQL query to find all duplicates in sales table.
+
+5\. Authors: author_name,	book_name (1M)
+
+  Books: book_name, sold_copies.(1M)
+
+  
+
+  Top 3 authors with most sold copies
+
+  
+
+6\. Select max. salary of each department.
+
+7\. Write an SQL Query to find the number of employees according to gender whose DOB is between 01/01/1960 to 31/12/1975.
+
+Read more: [https://www.java67.com/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html#ixzz7ZKBhuirc](https://www.java67.com/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html#ixzz7ZKBhuirc "https://www.java67.com/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html#ixzz7ZKBhuirc")
+
+8\. Write an SQL Query to find an employee whose salary is equal to or greater than 10000.
+
+Read more: [https://www.java67.com/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html#ixzz7ZKBnVubE](https://www.java67.com/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html#ixzz7ZKBnVubE "https://www.java67.com/2013/04/10-frequently-asked-sql-query-interview-questions-answers-database.html#ixzz7ZKBnVubE")
