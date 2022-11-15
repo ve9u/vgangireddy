@@ -14,7 +14,7 @@ title = "5 steps to fetch the data"
 +++
 Data Scientists meaningful data from large data stores to find hidden patterns. SQL can be used to fetch the only required data from the.
 
-This chapter covers multi-step approach to convert given query into SQL format.
+This series of blog posts covers the multi-step approaches 
 
 SQL clause has a dedicated operation for this, which will be used to interact with the database engine.
 
