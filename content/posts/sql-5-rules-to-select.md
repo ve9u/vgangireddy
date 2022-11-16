@@ -38,7 +38,7 @@ The rule of thumb is \[better words\]
 
 \[example\]
 
-Below blog posts will help you understand how you can use the table and column data to fetch the required result set.
+Below posts will help you understand how you can use the table and column data to fetch the required result set. \[re-intro need to correct\]
 
 POST1:
 
