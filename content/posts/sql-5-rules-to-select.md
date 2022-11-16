@@ -52,9 +52,9 @@ The expected result set should be in below format.
 
 | promoter_name | region | active_campigns_count | month |
 
-\[include relateable tables\]
+\[include relatable tables\]
 
-Below 5 step process deal with most useful SQL clauses.
+Below 5 step process deal with the most useful SQL clauses.
 
 The order of these clauses is also important which will define the syntax of the SQL query. 
 
