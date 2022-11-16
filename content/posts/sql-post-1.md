@@ -14,7 +14,6 @@ tags:
 draft: true
 
 ---
-The order of these clauses also importent which will define the syntax of the SQL query. 
 
 \## Basic clauses:
 
