@@ -14,8 +14,6 @@ tags:
 draft: true
 
 ---
- for constituting more complex queries in further chapters.
-
 The order of these clauses also importent which will define the syntax of the SQL query. 
 
 \## Basic clauses:
