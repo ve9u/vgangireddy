@@ -14,234 +14,86 @@ tags:
 draft: true
 
 ---
-**Advertisement :smile:**
+ for constituting more complex queries in further chapters.
 
-* [**pica**](https://nodeca.github.io/pica/demo/) - high quality and fast image
-  resize in browser.
-* [**babelfish**](https://github.com/nodeca/babelfish/) - developer friendly
-  i18n with plurals support and easy syntax.
+The order of these clauses also importent which will define the syntax of the SQL query. 
 
-You will like those projects!
+\## Basic clauses:
 
-***
+\### SELECT: 
 
-# h1 Heading :blush:
+This clause defines the list of columns should be present in the result set.
 
-## h2 Heading
+SELECT clause followed by list of expected column in the result set.
 
-### h3 Heading
+The expected column can be one of the below three types compare to the the relateable columns present in the given tables.
 
-#### h4 Heading
+1\. Column: The required information can be present as  column in one of the given table.
 
-##### h5 Heading
+For example, 
 
-###### h6 Heading
+a. The expected promoter_name as part of result set, directly present in the Promoter table as promoter_name column.
 
-## Horizontal Rules
+b. The region as part of result set, directly present in the Adcampign table as region column.
 
-***
+The coloumn information can be projected directly in the result set.
 
-***
+2\. Transformed Column: The required information not present in any of tables, but can be derived from the one or more coloumn present in a table. 
 
-***
+For example, 
 
-## Typographic replacements
+a. The campine month information not present as column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field. 
 
-Enable typographer option to see result.
+These kind of extraction / transformation operations can be performed by functions defined in the database engine. 
 
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+The function take column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set. 
 
-test.. test... test..... test?..... test!....
+Most commonly used function on date field are,
 
-!!!!!! ???? ,,  -- ---
+MONTH(), YEAR() \[add table here\]
 
-"Smartypants, double quotes" and 'single quotes'
+\`MONTH(end_date)\` could get us required month value.
 
-## Emphasis
+2\. Aggregated Information: The required information not present in any of tables, but can be derived from by aggregateing or combining values from one or multiple coloumns in given tables.
 
-**This is bold text**
+For example: There is no column can replace active_campign_count, but couting number of campign_id from AdCampign can replace active_campign_count.
 
-**This is bold text**
+Aggregated operation combine set of column entries into one single value, unlike normal function the end result will be single value.
 
-_This is italic text_
+1\. Count:
 
-_This is italic text_
+2\. Min:
 
-~~Strikethrough~~
+3\. Max:
 
-## Blockquotes
+4\. Sum:
 
-> Blockquotes can also be nested...
->
-> > ...by using additional greater-than signs right next to each other...
-> >
-> > > ...or with spaces between arrows.
+Gather all required column information and which tables these columns are belongs to.
 
-## Lists
+| Column |  Type | Table | source | function |
 
-Unordered
+| --- | ----------- |------- | -------- | ----- |
 
-* Create a list by starting a line with `+`, `-`, or `*`
-* Sub-lists are made by indenting 2 spaces:
-  * Marker character change forces new list start:
-    * Ac tristique libero volutpat at
+| promoter_name | Direct | Promoter | promoter_name | |
 
+| region  | Direct | AdCampign | region | |
 
-    * Facilisis in pretium nisl aliquet
+| month | Transformed | AdCampign | end_date | MONTH() |
 
+| active_campign_count | Aggregated | AdCampign | campign_id | COUNT() |
 
-    * Nulla volutpat aliquam velit
-* Very easy!
+Above table can be used to compose SELECT clause, this can be done by appling appropriate function on the source column. 
 
-Ordered
+SELECT promoter_name, region, MONTH(end_date), COUNT(campign_id)
 
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-4. You can use sequential numbers...
-5. ...or keep all the numbers as `1.`
+The project coloumn will be same as projected coloumn with the same header name. It will be like below.
 
-Start numbering with offset:
+| promoter_name | region | COUNT(campign_id) | MONTH(end_date) |
 
-1. foo
-2. bar
+These names are not user friendly, we can mention the alias name by adding as next to it.
 
-## Code
+SELECT promoter_name, region, MONTH(end_date) AS month, COUNT(campign_id) AS active_campigns_count
 
-Inline `code`
+As a syntatical suger we can ignore AS from the statement. This book further won't use AS, and the final SELECT statement will look like,
 
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-Block code "fences"
-
-    Sample text here...
-
-Syntax highlighting
-
-``` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
-```
-
-## Tables
-
-| Option | Description |
-| --- | --- |
-| data | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext | extension to be used for dest files. |
-
-Right aligned columns
-
-| Option | Description |
-| ---: | ---: |
-| data | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext | extension to be used for dest files. |
-
-## Links
-
-[link text](http://dev.nodeca.com)
-
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-## Images
-
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-Like links, Images also have a footnote style syntax
-
-![Alt text](https://octodex.github.com/images/dojocat.jpg "The Dojocat")
-
-With a reference later in the document defining the URL location:
-
-## Plugins
-
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-* 19^th^
-* H\~2\~O
-
-### [<ins>](https://github.com/markdown-it/markdown-it-ins)
-
-\++Inserted text++
-
-### [<mark>](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link\[^first\].
-
-Footnote 2 link\[^second\].
-
-Inline footnote^\[Text of inline footnote\] definition.
-
-Duplicated footnote reference\[^second\].
-
-\[^first\]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-\[^second\]: Footnote text.
-
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
-
-Term 1
-
-:   Definition 1
-with lazy continuation.
-
-Term 2 with _inline markup_
-
-:   Definition 2
-
-        { some code, part of Definition 2 }
-    
-    Third paragraph of definition 2.
-
-_Compact style:_
-
-Term 1
-\~ Definition 1
-
-Term 2
-\~ Definition 2a
-\~ Definition 2b
-
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
-
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-\*\[HTML\]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-_here be dragons_
-:::
+SELECT promoter_name, region, MONTH(end_date) month, COUNT(campign_id) active_campigns_count
