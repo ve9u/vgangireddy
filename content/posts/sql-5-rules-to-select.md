@@ -14,11 +14,11 @@ title = "5 steps to query the data"
 +++
 \[mind the 2nd person / third person\]
 
-Data Scientists ask a lot of questions themselves to search for meaningful data from large data stores to find hidden patterns. All these questions are in the native language rather than any datastore understandable language like SQL. The convenience of fetching the data might be the least of their concerns while they are asking these questions, luckily SQL standards are capable enough to handle almost every question Data Scientists throw at it. 
+Data Scientists ask a lot of questions themselves to search for meaningful data from large data stores to find hidden patterns. All these questions are in the native language rather than any datastore understandable language like SQL. The convenience of fetching the data might be the least of their concerns while they are asking these questions, luckily SQL standards are capable enough to handle almost every question Data Scientists throw at it.
 
 Database Management Systems(DBMS) manage all the data storage and understand the SQL capacities so that it can get the required answers from the data storage.
 
-This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. I tried to keep these steps friendly to the native reader rather than explaining each and every concept that SQL standards contain. 
+This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. I tried to keep these steps friendly to the native reader rather than explaining each and every concept that SQL standards contain.
 
 You need to understand how data is represented in the data stores before proceeding further. \[soften the tone\]
 
@@ -40,13 +40,11 @@ The rule of thumb is \[better words\]
 
 Below posts will help you understand how you can use the table and column data to fetch the required result set. \[re-intro need to correct\]
 
-POST1:
-
 SQL clause has a dedicated operation for this, which will be used to interact with the database engine.
 
 The query we are considering for this is,
 
-Consider social media ad campaign, wants to know the number of active ad campaigns of each promoter name by region in each month in this year. 
+Consider social media ad campaign, wants to know the number of active ad campaigns of each promoter name by region in each month in this year.
 
 \[ Consider ending_date of the campign as final campign date.\] (move this to table description)
 
@@ -58,99 +56,17 @@ The expected result set should be in below format.
 
 Below 5 step process deal with most useful SQL clauses.
 
-These are building block for constituting more complex queries in further chapters.
-
-The order of these clauses also importent which will define the syntax of the SQL query. 
-
-\## Basic clauses:
-
-\### SELECT: 
-
-This clause defines the list of columns should be present in the result set.
-
-SELECT clause followed by list of expected column in the result set.
-
-The expected column can be one of the below three types compare to the the relateable columns present in the given tables.
-
-1\. Column: The required information can be present as  column in one of the given table.
-
-For example, 
-
-a. The expected promoter_name as part of result set, directly present in the Promoter table as promoter_name column.
-
-b. The region as part of result set, directly present in the Adcampign table as region column.
-
-The coloumn information can be projected directly in the result set.
-
-2\. Transformed Column: The required information not present in any of tables, but can be derived from the one or more coloumn present in a table. 
-
-For example, 
-
-a. The campine month information not present as column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field. 
-
-These kind of extraction / transformation operations can be performed by functions defined in the database engine. 
-
-The function take column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set. 
-
-Most commonly used function on date field are,
-
-MONTH(), YEAR() \[add table here\]
-
-\`MONTH(end_date)\` could get us required month value.
-
-2\. Aggregated Information: The required information not present in any of tables, but can be derived from by aggregateing or combining values from one or multiple coloumns in given tables.
-
-For example: There is no column can replace active_campign_count, but couting number of campign_id from AdCampign can replace active_campign_count.
-
-Aggregated operation combine set of column entries into one single value, unlike normal function the end result will be single value.
-
-1\. Count:
-
-2\. Min:
-
-3\. Max:
-
-4\. Sum:
-
-Gather all required column information and which tables these columns are belongs to.
-
-| Column |  Type | Table | source | function |
-
-| --- | ----------- |------- | -------- | ----- |
-
-| promoter_name | Direct | Promoter | promoter_name | |
-
-| region  | Direct | AdCampign | region | |
-
-| month | Transformed | AdCampign | end_date | MONTH() |
-
-| active_campign_count | Aggregated | AdCampign | campign_id | COUNT() |
-
-Above table can be used to compose SELECT clause, this can be done by appling appropriate function on the source column. 
-
-SELECT promoter_name, region, MONTH(end_date), COUNT(campign_id)
-
-The project coloumn will be same as projected coloumn with the same header name. It will be like below.
-
-| promoter_name | region | COUNT(campign_id) | MONTH(end_date) |
-
-These names are not user friendly, we can mention the alias name by adding as next to it.
-
-SELECT promoter_name, region, MONTH(end_date) AS month, COUNT(campign_id) AS active_campigns_count
-
-As a syntatical suger we can ignore AS from the statement. This book further won't use AS, and the final SELECT statement will look like,
-
-SELECT promoter_name, region, MONTH(end_date) month, COUNT(campign_id) active_campigns_count
+The order of these clauses is also important which will define the syntax of the SQL query. 
 
 \### FROM : What tables data been stored
 
-This clause represents in what tables the information is resides. 
+This clause represents in what tables the information is resides.
 
-Place all the tables from above list in this clause. 
+Place all the tables from above list in this clause.
 
-It is possible that required columns are from different tables, but there is only one results set. Database engine do this magic of combining the data from different table called JOIN operation. We need to learn how to use this JOIN operation. We learn only simple JOIN(Natural JOIN) operation now, we will learn other flavors of in next chapters. 
+It is possible that required columns are from different tables, but there is only one results set. Database engine do this magic of combining the data from different table called JOIN operation. We need to learn how to use this JOIN operation. We learn only simple JOIN(Natural JOIN) operation now, we will learn other flavors of in next chapters.
 
-Natural JOIN: 
+Natural JOIN:
 
 This will combine the same columns of different tables based on JOIN predicate.
 
@@ -164,15 +80,15 @@ explain equal predicate
 
 Example:
 
-FROM TABLE-A JOIN TABLE-B ON 
+FROM TABLE-A JOIN TABLE-B ON
 
-\### Where: 
+\### Where:
 
 These will be used to add additional predicates
 
 1\. Less than
 
-2\. Greater than 
+2\. Greater than
 
 3\. Not equal
 
@@ -182,7 +98,7 @@ These will be used to add additional predicates
 
 These columns will group the result set into subset before applying aggregation operations, so that aggregated operation will happen in the groups.
 
-The general rule of thumb, all non-aggregated cloumns in the 
+The general rule of thumb, all non-aggregated cloumns in the
 
 \### Having: Filter on aggregated fields.
 
@@ -190,13 +106,13 @@ This filed apply predicate condition over aggregated columns in the result-set.
 
 \## Additional Basic Clauses:
 
-1\. Sort the result set. 
+1\. Sort the result set.
 
-Sometime results set need to present in a meaningful way by sorting based on different column values. 
+Sometime results set need to present in a meaningful way by sorting based on different column values.
 
-ORDER BY clause will be used to sort the result set. 
+ORDER BY clause will be used to sort the result set.
 
-based on subset of columns mentioned in the SELECT clause. 
+based on subset of columns mentioned in the SELECT clause.
 
 Example:
 
@@ -224,7 +140,7 @@ Employees: employee_id, employee_name,
 
 Login
 
-1\. Write SQL query to get all data from the Employee table. 
+1\. Write SQL query to get all data from the Employee table.
 
 Follow 5 rules.
 
@@ -234,13 +150,13 @@ SELECT *
 
 Introduce *:
 
-Not recommended considering dealing with large volume of data. 
+Not recommended considering dealing with large volume of data.
 
 Get some estimate before doing actual operation
 
 Introduce EXPLAN
 
-2\. How many total columns in Employee table. 
+2\. How many total columns in Employee table.
 
 Follow 5 rules.
 
@@ -252,17 +168,15 @@ Introduce explain
 
 select the most recent login time by values from the login_info table
 
- 
-
 \`\`\`SQL
 
- CREATE TABLE login_info (
+CREATE TABLE login_info (
 
- user_id INT,
+user_id INT,
 
- login_time DATETIME
+login_time DATETIME
 
- );
+);
 
 \`\`\`
 
@@ -272,13 +186,9 @@ select the most recent login time by values from the login_info table
 
 5\. Authors: author_name,	book_name (1M)
 
-  Books: book_name, sold_copies.(1M)
+Books: book_name, sold_copies.(1M)
 
-  
-
-  Top 3 authors with most sold copies
-
-  
+Top 3 authors with most sold copies
 
 6\. Select max. salary of each department.
 
