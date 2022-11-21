@@ -14,12 +14,11 @@ tags:
 draft: true
 
 ---
-
 \## Basic clauses:
 
-\### SELECT: 
+\### SELECT:
 
-This clause defines the list of columns should be present in the result set.
+This clause defines the list of columns that should be present in the result set.
 
 SELECT clause followed by list of expected column in the result set.
 
@@ -27,7 +26,7 @@ The expected column can be one of the below three types compare to the the relat
 
 1\. Column: The required information can be present as  column in one of the given table.
 
-For example, 
+For example,
 
 a. The expected promoter_name as part of result set, directly present in the Promoter table as promoter_name column.
 
@@ -35,15 +34,15 @@ b. The region as part of result set, directly present in the Adcampign table as 
 
 The coloumn information can be projected directly in the result set.
 
-2\. Transformed Column: The required information not present in any of tables, but can be derived from the one or more coloumn present in a table. 
+2\. Transformed Column: The required information not present in any of tables, but can be derived from the one or more coloumn present in a table.
 
-For example, 
+For example,
 
-a. The campine month information not present as column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field. 
+a. The campine month information not present as column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field.
 
-These kind of extraction / transformation operations can be performed by functions defined in the database engine. 
+These kind of extraction / transformation operations can be performed by functions defined in the database engine.
 
-The function take column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set. 
+The function take column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set.
 
 Most commonly used function on date field are,
 
@@ -79,7 +78,7 @@ Gather all required column information and which tables these columns are belong
 
 | active_campign_count | Aggregated | AdCampign | campign_id | COUNT() |
 
-Above table can be used to compose SELECT clause, this can be done by appling appropriate function on the source column. 
+Above table can be used to compose SELECT clause, this can be done by appling appropriate function on the source column.
 
 SELECT promoter_name, region, MONTH(end_date), COUNT(campign_id)
 
