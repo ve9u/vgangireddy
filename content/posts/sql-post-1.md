@@ -20,11 +20,11 @@ draft: true
 
 This clause defines the list of columns that should be present in the result set.
 
-SELECT clause followed by list of expected column in the result set.
+SELECT clause followed by a list of the expected column in the result set.
 
-The expected column can be one of the below three types compare to the the relateable columns present in the given tables.
+The expected column can be one of the below three types compared to the relatable columns present in the given tables.
 
-1\. Column: The required information can be present as  column in one of the given table.
+1\. Column: The required information can be present as a column in one of the given tables.
 
 For example,
 
