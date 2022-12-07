@@ -28,21 +28,21 @@ The expected column can be one of the below three types compared to the relatabl
 
 For example,
 
-a. The expected promoter_name as part of result set, directly present in the Promoter table as promoter_name column.
+a. The expected promoter_name as part of the result set, is directly present in the Promoter table as a promoter_name column.
 
-b. The region as part of result set, directly present in the Adcampign table as region column.
+b. The region as part of the result set, is directly present in the Adcampign table as a region column.
 
-The coloumn information can be projected directly in the result set.
+The column information can be projected directly in the result set.
 
-2\. Transformed Column: The required information not present in any of tables, but can be derived from the one or more coloumn present in a table.
+2\. Transformed Column: The required information is not present in any of the tables, but can be derived from one or more columns present in a table.
 
 For example,
 
-a. The campine month information not present as column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field.
+a. The campine month information is not present as a column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field.
 
-These kind of extraction / transformation operations can be performed by functions defined in the database engine.
+This kind of extraction/transformation operations can be performed by functions defined in the database engine.
 
-The function take column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set.
+The function take a column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set.
 
 Most commonly used function on date field are,
 
