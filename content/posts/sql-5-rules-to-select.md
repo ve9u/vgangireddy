@@ -14,9 +14,9 @@ title = "5 steps to query the data"
 +++
 \[mind the 2nd person / third person\]
 
-Data Scientists ask questions themselves to search for meaningful data from large databases and to find hidden patterns. All these questions are in the native language rather than any database understandable language like SQL(Structured Query Language). SQL is supported by most database management systems and it is capable enough to convert any native language query into SQL standards followed by these database management systems. 
+Data Scientists ask questions among themselves to search for meaningful data from large databases and to find hidden patterns. All these questions are in the native language rather than any database understandable language like SQL(Structured Query Language). 
 
-Database Management Systems(DBMS) manage all the data storage and the SQL capacities so that it can get the required answers from the data storage.
+Database Management System(DBMS) manages all the data storage and provides an interface for the data scientists to fetch the data from the storage. SQL standards are supported by most DBMS software and these standards are capable enough to convert any native language query into a database understandable SQL query. 
 
 This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. I tried to keep these steps friendly to the native reader rather than explaining each and every concept that SQL standards contain.
 
