@@ -12,8 +12,6 @@ tags = ["SQL", "5 Steps"]
 title = "5 steps to query the data"
 
 +++
-\[mind the 2nd person / third person\]
-
 Data Scientists ask questions among themselves to search for meaningful data from large databases and to find hidden patterns. All these questions are in the native language rather than any database understandable language like SQL(Structured Query Language). 
 
 Database Management System(DBMS) manages the data storage and provides an interface for data scientists to fetch the data from the storage. SQL standards are supported by most DBMS software programs and these standards are capable enough to convert any native language query into a DBMS understandable SQL query. 
