@@ -14,9 +14,9 @@ title = "5 steps to query the data"
 +++
 \[mind the 2nd person / third person\]
 
-Data Scientists ask a lot of questions themselves to search for meaningful data from large data stores to find hidden patterns. All these questions are in the native language rather than any datastore understandable language like SQL. The convenience of fetching the data might be the least of their concerns while they are asking these questions, luckily SQL standards are capable enough to handle almost every question Data Scientists throw at it.
+Data Scientists ask questions themselves to search for meaningful data from large databases and to find hidden patterns. All these questions are in the native language rather than any database understandable language like SQL(Structured Query Language). SQL is supported by most database management systems and it is capable enough to convert any native language query into SQL standards followed by these database management systems. 
 
-Database Management Systems(DBMS) manage all the data storage and understand the SQL capacities so that it can get the required answers from the data storage.
+Database Management Systems(DBMS) manage all the data storage and the SQL capacities so that it can get the required answers from the data storage.
 
 This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. I tried to keep these steps friendly to the native reader rather than explaining each and every concept that SQL standards contain.
 
@@ -56,7 +56,7 @@ The expected result set should be in below format.
 
 Below 5 step process deal with the most useful SQL clauses.
 
-The order of these clauses is also important which will define the syntax of the SQL query. 
+The order of these clauses is also important which will define the syntax of the SQL query.
 
 \### FROM : What tables data been stored
 
