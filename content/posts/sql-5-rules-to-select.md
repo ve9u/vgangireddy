@@ -18,7 +18,7 @@ Data Scientists ask questions among themselves to search for meaningful data fro
 
 Database Management System(DBMS) manages the data storage and provides an interface for data scientists to fetch the data from the storage. SQL standards are supported by most DBMS software programs and these standards are capable enough to convert any native language query into a DBMS understandable SQL query. 
 
-This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. I tried to keep these steps friendly to the native reader rather than explaining each and every concept that SQL standards contain.
+This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. 
 
 You need to understand how data is represented in the data stores before proceeding further. \[soften the tone\]
 
