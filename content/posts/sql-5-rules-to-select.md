@@ -12,11 +12,11 @@ tags = ["SQL", "5 Steps"]
 title = "5 steps to query the data"
 
 +++
-Data Scientists ask questions among themselves to search for meaningful data from large databases and to find hidden patterns. All these questions are in the native language rather than any database understandable language like SQL(Structured Query Language). 
+Data Scientists ask questions among themselves to search for meaningful data from large databases and to find hidden patterns. All these questions are in the native language rather than any database understandable language like SQL(Structured Query Language).
 
-Database Management System(DBMS) manages the data storage and provides an interface for data scientists to fetch the data from the storage. SQL standards are supported by most DBMS software programs and these standards are capable enough to convert any native language query into a DBMS understandable SQL query. 
+Database Management System(DBMS) manages the data storage and provides an interface for data scientists to fetch the data from the storage. SQL standards are supported by most DBMS software programs and these standards are capable enough to convert any native language query into a DBMS understandable SQL query.
 
-This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query. 
+This series of blog posts covers the multi-step approach that can convert these native questions into a SQL query.
 
 You need to understand how data is represented in the data stores before proceeding further. \[soften the tone\]
 
@@ -42,35 +42,35 @@ SQL clause has a dedicated operation for this, which will be used to interact wi
 
 The query we are considering for this is,
 
-Consider social media ad campaign, wants to know the number of active ad campaigns of each promoter name by region in each month in this year.
+Consider social media ad campaign, wants to know the number of active ad campaigns of each promoter name by region in each month this year.
 
-\[ Consider ending_date of the campign as final campign date.\] (move this to table description)
+\[ Consider ending_date of the campaign as the final campaign date.\] (move this to the table description)
 
-The expected result set should be in below format.
+The expected result set should be in the below format.
 
 | promoter_name | region | active_campigns_count | month |
 
 \[include relatable tables\]
 
-Below 5 step process deal with the most useful SQL clauses.
+5 step process deal with the most useful SQL clauses.
 
 The order of these clauses is also important which will define the syntax of the SQL query.
 
-\### FROM : What tables data been stored
+\### FROM: What tables data has been stored
 
-This clause represents in what tables the information is resides.
+This clause represents in what tables the information resides.
 
-Place all the tables from above list in this clause.
+Place all the tables from the above list in this clause.
 
-It is possible that required columns are from different tables, but there is only one results set. Database engine do this magic of combining the data from different table called JOIN operation. We need to learn how to use this JOIN operation. We learn only simple JOIN(Natural JOIN) operation now, we will learn other flavors of in next chapters.
+It is possible that the required columns are from different tables, but there is only one result set. Database engines do this magic of combining the data from a different table called the JOIN operation. We need to learn how to use this JOIN operation. We learn only simple JOIN(Natural JOIN) operations now, we will learn other flavors in the next chapters.
 
 Natural JOIN:
 
-This will combine the same columns of different tables based on JOIN predicate.
+This will combine the same columns of different tables based on the JOIN predicate.
 
 1\. Tables involved in JOIN operation.
 
-2\. JOIN Predicate: The general rule of thumb is JOIN predicate happens between primary key and foreign key.
+2\. JOIN Predicate: The general rule of thumb is JOIN predicate happens between the primary key and the foreign key.
 
 Predicate: True or False.
 
@@ -92,25 +92,25 @@ These will be used to add additional predicates
 
 4\. equal
 
-\### GROUP BY: Rest of the fields which are not participating in the aggregate operations
+\### GROUP BY: The rest of the fields which are not participating in the aggregate operations
 
-These columns will group the result set into subset before applying aggregation operations, so that aggregated operation will happen in the groups.
+These columns will group the result set into subsets before applying aggregation operations so that aggregated operations will happen in the groups.
 
-The general rule of thumb, all non-aggregated cloumns in the
+The general rule of thumb, all non-aggregated columns in the
 
 \### Having: Filter on aggregated fields.
 
-This filed apply predicate condition over aggregated columns in the result-set.
+This field applies predicate conditions over aggregated columns in the result set.
 
 \## Additional Basic Clauses:
 
 1\. Sort the result set.
 
-Sometime results set need to present in a meaningful way by sorting based on different column values.
+Sometimes results set need to be present in a meaningful way by sorting based on different column values.
 
 ORDER BY clause will be used to sort the result set.
 
-based on subset of columns mentioned in the SELECT clause.
+based on a subset of columns mentioned in the SELECT clause.
 
 Example:
 
@@ -162,7 +162,7 @@ Introduce count(*):
 
 Introduce explain
 
-2\. Select most recent login times
+2\. Select the most recent login times
 
 select the most recent login time by values from the login_info table
 
