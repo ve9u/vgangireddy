@@ -38,13 +38,13 @@ The column information can be projected directly in the result set.
 
 For example,
 
-a. The campine month information is not present as a column in any table, but can be derived from the end_date of the camping, by extracting MONTH from the date field.
+a. The campine month information is not present as a column in any table but can be derived from the end_date of the camping, by extracting MONTH from the date field.
 
 This kind of extraction/transformation operations can be performed by functions defined in the database engine.
 
-The function take a column as input and perform the defined transformation on each entry of the coloumn and project transformed result in the final result set.
+The function takes a column as input and performs the defined transformation on each entry of the column and projects the transformed to result in the final result set.
 
-Most commonly used function on date field are,
+The most commonly used functions on date field are,
 
 MONTH(), YEAR() \[add table here\]
 
